@@ -163,8 +163,11 @@ export async function runAgent(
     ) {
       const original = await call("Original · JWT", SEED);
       if (c.mode === "no-fork") {
+        const before = await w.hash(original);
         await call("Resume without fork", FORK, { resume: original });
         await call("Original now changed", RECALL, { resume: original });
+        sourceUnchanged = before === (await w.hash(original));
+        observe("plain-resume-source-check", { original, unchanged: sourceUnchanged });
       } else {
         const branch = await fork(original, "Fork · OAuth", FORK);
         if (c.mode === "compare" || c.mode === "independent")
@@ -221,7 +224,8 @@ export async function runAgent(
       sourceUnchanged = before === (await w.hash(original));
     }
     if (c.mode === "state") {
-      await call("Source decision", SEED);
+      const original = await call("Source decision", SEED);
+      const before = await w.hash(original);
       appState = await w.saveState(results[0].text);
       observe("application-state-reloaded", {
         decision: appState,
@@ -233,6 +237,7 @@ export async function runAgent(
         {},
         true,
       );
+      sourceUnchanged = before === (await w.hash(original));
     }
     await list(c.mode === "transfer" || c.mode === "state");
     const evidence: Evidence = {

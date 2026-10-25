@@ -157,7 +157,7 @@ const before = await w.hash(original);
 
 The original still recalls JWT-40; the fork recalls OAUTH-40. Each subsequent resume selects its own explicit ID.
 
-Source: `src/agent.ts`, selected lines 170–174. Surrounding code omitted.
+Source: `src/agent.ts`, selected lines 173–177. Surrounding code omitted.
 
 ```typescript
 if (c.mode === "compare" || c.mode === "independent")

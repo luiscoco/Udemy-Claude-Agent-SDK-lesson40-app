@@ -146,7 +146,7 @@
       "anchors": [
         "const before = await w.hash(original);"
       ],
-      "sourceSHA256": "fb5f428d1cc0dd7ede0ecaccc1bb82420eae8447f84f1a8805ed242a5fe0d859",
+      "sourceSHA256": "3efd58d77f7af40f991f9e33228a237f1c9606f3a0fa7e4da6365bd7f648f4ec",
       "narration": "Step 5. Hash the source JSONL before and after creating the fork, before any later original resume appends new messages. This source excerpt shows the corresponding application statement."
     },
     {
@@ -156,12 +156,12 @@
       "code": "if (c.mode === \"compare\" || c.mode === \"independent\")\n          await call(\"Resume original\", RECALL, { resume: original });\n        if (c.mode === \"independent\")\n          await call(\"Resume fork\", RECALL, { resume: branch });\n        if (c.mode === \"choice\") {",
       "language": "typescript",
       "explanation": "The original still recalls JWT-40; the fork recalls OAUTH-40. Each subsequent resume selects its own explicit ID.",
-      "firstLine": 170,
-      "lastLine": 174,
+      "firstLine": 173,
+      "lastLine": 177,
       "anchors": [
         "if (c.mode === \"compare\" || c.mode === \"independent\")"
       ],
-      "sourceSHA256": "fb5f428d1cc0dd7ede0ecaccc1bb82420eae8447f84f1a8805ed242a5fe0d859",
+      "sourceSHA256": "3efd58d77f7af40f991f9e33228a237f1c9606f3a0fa7e4da6365bd7f648f4ec",
       "narration": "Step 6. The original still recalls JWT-40; the fork recalls OAUTH-40. Each subsequent resume selects its own explicit ID. This source excerpt shows the corresponding application statement."
     },
     {

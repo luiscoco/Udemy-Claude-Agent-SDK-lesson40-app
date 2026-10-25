@@ -27,7 +27,7 @@
     });
     const unchanged = before === (await w.hash(original));
     sourceUnchanged &amp;&amp;= unchanged;
-    observe(&quot;source-transcript-check&quot;, { original, forked: id, unchanged });</code></pre></section><section class="step workflow-step" id="workflow-step-06"><span class="number">06</span><h3>6. Resume the original independently</h3><p>The original still recalls JWT-40; the fork recalls OAUTH-40. Each subsequent resume selects its own explicit ID.</p><p class="source">Source: src/agent.ts · lines 170–174 · selected source; surrounding code omitted</p><pre><code class="language-typescript">if (c.mode === &quot;compare&quot; || c.mode === &quot;independent&quot;)
+    observe(&quot;source-transcript-check&quot;, { original, forked: id, unchanged });</code></pre></section><section class="step workflow-step" id="workflow-step-06"><span class="number">06</span><h3>6. Resume the original independently</h3><p>The original still recalls JWT-40; the fork recalls OAUTH-40. Each subsequent resume selects its own explicit ID.</p><p class="source">Source: src/agent.ts · lines 173–177 · selected source; surrounding code omitted</p><pre><code class="language-typescript">if (c.mode === &quot;compare&quot; || c.mode === &quot;independent&quot;)
           await call(&quot;Resume original&quot;, RECALL, { resume: original });
         if (c.mode === &quot;independent&quot;)
           await call(&quot;Resume fork&quot;, RECALL, { resume: branch });
